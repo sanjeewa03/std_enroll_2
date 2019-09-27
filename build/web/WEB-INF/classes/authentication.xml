@@ -1,0 +1,41 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: sanjeewa_s -->
+ 
+<struts>
+    <package name="actions" extends="struts-default">
+        <interceptors>
+            <interceptor name="authorization" class="interceptor.Authorization"/>
+            <interceptor name="login" class="interceptor.LoginInterceptor"/>
+        </interceptors>
+        <action name="Login" class="actions.Login">
+            <interceptor-ref name = "params"/>
+            <interceptor-ref name="login"/> 
+            <interceptor-ref name = "authorization"/>
+            <result name="student">student/studentHome.jsp</result>
+            <result name="teacher">teacher/teacherHome.jsp</result>
+            <result name="error">loginPage.jsp</result>
+            <result name="login">loginPage.jsp</result>
+        </action>
+    </package>
+    <package name="subjects" extends="struts-default">
+        <interceptors>
+            <interceptor name="authorization" class="interceptor.Authorization"/>
+            <interceptor name="login" class="interceptor.LoginInterceptor"/>
+        </interceptors>
+           
+
+        <action name = "ViewSubjects" class = "actions.ViewSubjects">
+            <interceptor-ref name = "params"/>
+            <interceptor-ref name="authorization"/>
+            <interceptor-ref name="login"/>
+            <result name="success">teacher/editCourses.jsp</result>
+            <result name="error">/loginPage.jsp</result>
+            <result name="login">loginPage.jsp</result>
+        </action>
+    </package>
+</struts>
+
+
