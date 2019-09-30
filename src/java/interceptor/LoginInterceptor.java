@@ -32,6 +32,7 @@ public class LoginInterceptor implements Interceptor {
         String result = "";
         if(session.getAttribute("userName")==null){
             if(action.equals("actions.Login")){
+                System.out.println("login Iterceptor");
                 result = actionInvocation.invoke();
             }else{
                 result = "login";
@@ -39,6 +40,7 @@ public class LoginInterceptor implements Interceptor {
         }
         else{
             result = actionInvocation.invoke();
+            System.out.println("login Iterceptor");
         }
         return result;
     }

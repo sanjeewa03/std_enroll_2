@@ -28,5 +28,7 @@
                 </tr>
             </s:iterator>
         </table>
+        <br><br>
+        <p><a href="<s:url action='Logout'/>">Logout</a></p>
     </body>
 </html>

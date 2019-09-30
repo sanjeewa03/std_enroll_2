@@ -71,32 +71,32 @@ public class Authorization implements Interceptor {
             if(action.equals("actions.Login")){
                switch (role) {
                 case "student":
-                    System.out.println("teacher");
+                    System.out.println("student from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                     result = "student";
                     break;
                 case "teacher":
-                    System.out.println("teacher");
+                    System.out.println("teacher from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                     result = "teacher";
                     break;
                }
            }
             else{
-                System.out.println(isAllowed);
+                System.out.println("isallowed is "+isAllowed+" from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                 result = actionInvocation.invoke();
             }
         }
         else{
             switch (role) {
                 case "student":
-                    System.out.println("teacher");
+                    System.out.println(role+" from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                     result = "student";
                     break;
                 case "teacher":
-                    System.out.println("teacher");
+                    System.out.println("teacher from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                     result = "teacher";
                     break;
                 default:
-                    System.out.println("error2");
+                    System.out.println("error2 from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                     result = "error";
                     break;
             }
@@ -105,14 +105,15 @@ public class Authorization implements Interceptor {
        else{
            String action = actionInvocation.getAction().getClass().getName();
            if(action.equals("actions.Login")){
+               System.out.println("action login  from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
                result = actionInvocation.invoke();
            }
            else{
-            System.out.println("error2");
+            System.out.println("error2 from AUTHORIZATION INTERCEPTOR"+" is allaowd "+ isAllowed);
             result = "error";
            }
        }
-        System.out.println("****"+result);
+        System.out.println("****"+result+ "from AUTHORIZATION INTERCEPTOR");
         return result;
     }
     

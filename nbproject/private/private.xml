@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/struts.xml</file>
+            <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/services/Authentication.java</file>
+            <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/interceptor/LoginInterceptor.java</file>
             <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/authentication.xml</file>
-            <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/actions/Login.java</file>
             <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/interceptor/Authorization.java</file>
+            <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/actions/Login.java</file>
+            <file>file:/C:/Users/sanjeewa_s/Documents/NetBeansProjects/StudentEnrollement2/src/java/actions/ViewSubjects.java</file>
         </group>
     </open-files>
 </project-private>

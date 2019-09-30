@@ -19,8 +19,23 @@
             <result name="error">loginPage.jsp</result>
             <result name="login">loginPage.jsp</result>
         </action>
+        <action name = "Logout" class = "actions.Logout" >
+            <interceptor-ref name = "params"/>
+            <interceptor-ref name="authorization"/>
+            <interceptor-ref name="login"/>
+            <result name="login">loginPage.jsp</result>
+            <result name="success">teacher/editCourses.jsp</result>
+            <result name="error">/loginPage.jsp</result>
+            <result name="student">student/studentHome.jsp</result>
+            <result name="teacher">teacher/teacherHome.jsp</result>
+        </action>
+        
     </package>
     <package name="subjects" extends="struts-default">
+<!--        <global-results>
+            <result name="student">student/studentHome.jsp</result>
+            <result name="teacher">teacher/teacherHome.jsp</result>
+        </global-results>-->
         <interceptors>
             <interceptor name="authorization" class="interceptor.Authorization"/>
             <interceptor name="login" class="interceptor.LoginInterceptor"/>
@@ -34,7 +49,10 @@
             <result name="success">teacher/editCourses.jsp</result>
             <result name="error">/loginPage.jsp</result>
             <result name="login">loginPage.jsp</result>
+            <result name="student">student/studentHome.jsp</result>
+            <result name="teacher">teacher/teacherHome.jsp</result>
         </action>
+        
     </package>
 </struts>
 

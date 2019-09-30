@@ -14,5 +14,7 @@
     <body>
         <h1>student home!</h1><br>
         <p><a href="<s:url action='ViewSubjects'/>">All Subjects</a></p>
+        <br><br>
+        <p><a href="<s:url action='Logout'/>">Logout</a></p>
     </body>
 </html>

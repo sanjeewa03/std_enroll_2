@@ -44,7 +44,7 @@ public class ViewSubjects extends ActionSupport {
         HttpServletResponse response = ServletActionContext.getResponse();
         String referer = request.getHeader("Referer");
         System.out.println(referer);
-        response.sendRedirect(referer);
+        //response.sendRedirect(referer);
         return SUCCESS;
     }
 

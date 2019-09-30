@@ -56,6 +56,14 @@ public class Login extends ActionSupport {
         return result;
     }
 
+    
+    public String logout(){
+        HttpSession session = ServletActionContext.getRequest().getSession();
+        session.invalidate();
+        return LOGIN;
+    }
+    
+    
     /**
      * @param user the user to set
      */
