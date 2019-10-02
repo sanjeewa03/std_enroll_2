@@ -30,5 +30,7 @@
         </table>
         <br><br>
         <p><a href="<s:url action='Logout'/>">Logout</a></p>
+        <br>
+        <s:property value="count"/>
     </body>
 </html>

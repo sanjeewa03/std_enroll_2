@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.Subject;
 import org.apache.struts2.ServletActionContext;
+import services.SubjectService;
 
 /**
  *
@@ -20,6 +21,24 @@ import org.apache.struts2.ServletActionContext;
 public class ViewSubjects extends ActionSupport {
     
     private Subject[] subjects;
+    private int page;
+    private int count;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
     
     public ViewSubjects() {
     }
@@ -28,14 +47,11 @@ public class ViewSubjects extends ActionSupport {
     public String execute() throws Exception {
         System.out.println(this.haveSession());
         System.out.println("inside the execute");
-        this.subjects = new Subject[5];
-        for(Integer  i=0;i<5;i++){
-            Subject s = new Subject();
-            s.setSub_code(i.toString());
-            s.setSub_name("sub_"+i.toString());
-            s.setCredit(i);
-            this.subjects[i]=s;
-        }
+        //this.subjects = new Subject[page];
+        SubjectService subService = new SubjectService();
+        count = subService.getSubjectCount();
+        this.subjects = subService.getSubjects(1,page);
+        System.out.println("page = "+this.getPage());
         System.out.println(this.subjects.length);
         for(int j=0;j<this.subjects.length;j++){
             System.out.println(this.subjects[j].getSub_name());
