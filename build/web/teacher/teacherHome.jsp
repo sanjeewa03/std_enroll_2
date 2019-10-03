@@ -15,7 +15,8 @@
         <h1>Teacher Home</h1><br><br>
         <p><a href="<s:url action='ViewSubjects'>
                   <s:param name="page">5</s:param>
-        </s:url>">All Subjects</a></p>
+                  <s:param name="offset">1</s:param>
+              </s:url>">All Subjects</a></p>
         <br><br>
         <p><a href="<s:url action='Logout'/>">Logout</a></p>
     </body>

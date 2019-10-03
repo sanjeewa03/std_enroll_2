@@ -28,6 +28,18 @@
                 </tr>
             </s:iterator>
         </table>
+
+        <div class="pagination">
+            <s:iterator status="stat" value="(count).{ #this }" >
+                <a href="
+                   <s:url action='ViewSubjects'>
+                       <s:param name="page">5</s:param>
+                       <s:param name="offset" value="#stat.count"/>
+                   </s:url>
+                   "><s:property value="#stat.count" /></a>
+            </s:iterator>
+
+        </div>
         <br><br>
         <p><a href="<s:url action='Logout'/>">Logout</a></p>
         <br>

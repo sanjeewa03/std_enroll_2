@@ -23,6 +23,7 @@ public class ViewSubjects extends ActionSupport {
     private Subject[] subjects;
     private int page;
     private int count;
+    private int offset;
 
     public int getCount() {
         return count;
@@ -49,13 +50,17 @@ public class ViewSubjects extends ActionSupport {
         System.out.println("inside the execute");
         //this.subjects = new Subject[page];
         SubjectService subService = new SubjectService();
-        count = subService.getSubjectCount();
-        this.subjects = subService.getSubjects(1,page);
+        double temp = subService.getSubjectCount()/(double)page;
+        System.out.println("temp is "+temp);
+        count = (int)Math.ceil(temp);
+        System.out.println("count is "+ count);
+        System.out.println("offset is "+offset);
+        this.subjects = subService.getSubjects((offset-1)*page,page);
         System.out.println("page = "+this.getPage());
         System.out.println(this.subjects.length);
-        for(int j=0;j<this.subjects.length;j++){
-            System.out.println(this.subjects[j].getSub_name());
-        }
+//        for(int j=0;j<this.subjects.length;j++){
+//            System.out.println(this.subjects[j].getSub_name());
+//        }
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpServletResponse response = ServletActionContext.getResponse();
         String referer = request.getHeader("Referer");
@@ -86,6 +91,20 @@ public class ViewSubjects extends ActionSupport {
         else{
             return false;
         }
+    }
+
+    /**
+     * @return the offset
+     */
+    public int getOffset() {
+        return offset;
+    }
+
+    /**
+     * @param offset the offset to set
+     */
+    public void setOffset(int offset) {
+        this.offset = offset;
     }
     
 }

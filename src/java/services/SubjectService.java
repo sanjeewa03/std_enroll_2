@@ -19,37 +19,39 @@ import models.Subject;
  * @author sanjeewa_s
  */
 public class SubjectService {
-    
-    public void addSubject(Subject s){
+
+    public void addSubject(Subject s) {
         try {
             Connection con = DBConnection.connect();
             String q = "INSERT INTO `subjects`(`sub_code`, `sub_name`, `credit`) VALUES (?,?,?)";
             PreparedStatement stm = con.prepareStatement(q);
-            stm.setString(1,s.getSub_code());
-            stm.setString(2,s.getSub_name());
-            stm.setInt(3,s.getCredit());
+            stm.setString(1, s.getSub_code());
+            stm.setString(2, s.getSub_name());
+            stm.setInt(3, s.getCredit());
             stm.execute();
         } catch (SQLException ex) {
             Logger.getLogger(SubjectService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    public Subject[] getSubjects(int offSet, int count){
+
+    public Subject[] getSubjects(int offSet, int count) {
         try {
             Connection con = DBConnection.connect();
-            String q = "SELECT * FROM `subjects` LIMIT ? OFFSET ?";
+            String q = "SELECT * FROM `subjects` ORDER BY credit LIMIT ? OFFSET ? ";
             PreparedStatement stm = con.prepareStatement(q);
-            stm.setInt(1,count);
-            stm.setInt(2,offSet);
+            stm.setInt(1, count);
+            stm.setInt(2, offSet);
+            System.out.println(q + " " + count + " " + offSet);
             ResultSet rs = stm.executeQuery();
             Subject[] sub = new Subject[count];
-            int i =0;
-            while(rs.next()){
+            int i = 0;
+            while (rs.next()) {
                 Subject s = new Subject();
                 s.setSub_name(rs.getString("sub_name"));
                 s.setSub_code(rs.getString("sub_code"));
                 s.setCredit(rs.getInt("credit"));
-                sub[i]=s;
+                sub[i] = s;
                 System.out.println(sub[i].getSub_code());
                 i++;
             }
@@ -59,15 +61,15 @@ public class SubjectService {
         }
         return null;
     }
-    
-    public int getSubjectCount(){
+
+    public int getSubjectCount() {
         int count = 0;
         try {
             Connection con = DBConnection.connect();
             String q = "SELECT COUNT(sub_code) FROM `subjects`";
             PreparedStatement stm = con.prepareStatement(q);
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 count = rs.getInt("COUNT(sub_code)");
             }
             System.out.println(count);
@@ -77,5 +79,5 @@ public class SubjectService {
         }
         return 0;
     }
-    
+
 }
