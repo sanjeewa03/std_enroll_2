@@ -40,7 +40,11 @@
             </s:iterator>
 
         </div>
-        <br><br>
+        <br>
+        <a href="<s:url action='PDFDownloader' />">Download Subject List PDF</a>
+        <br>
+        <a href="<s:url action='ExcelDownloader' />">Download Subject List Excel</a>
+        <br>
         <p><a href="<s:url action='Logout'/>">Logout</a></p>
         <br>
         <s:property value="count"/>

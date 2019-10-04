@@ -52,7 +52,16 @@
             <result name="student">student/studentHome.jsp</result>
             <result name="teacher">teacher/teacherHome.jsp</result>
         </action>
-        
+        <action name = "PDFDownloader" class="actions.PDFDownloader">
+            <interceptor-ref name = "params"/>
+            <interceptor-ref name="authorization"/>
+            <interceptor-ref name="login"/>
+        </action>
+        <action name = "ExcelDownloader" class="actions.ExcelDownloader">
+            <interceptor-ref name = "params"/>
+            <interceptor-ref name="authorization"/>
+            <interceptor-ref name="login"/>
+        </action>
     </package>
 </struts>
 

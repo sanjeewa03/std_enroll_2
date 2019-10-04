@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Vector;
 import models.Subject;
 import services.DBConnection;
@@ -19,8 +21,8 @@ import services.DBConnection;
  * @author sanjeewa_s
  */
 public class SubjectBeanFactory {
-    public static Collection getWeatherBeans(){
-        Vector allbeans = new Vector();
+    public static List<Subject> getSubjectBeans(){
+        List<Subject> allbeans = new LinkedList<>();
         try {
             Connection con = DBConnection.connect();
             String q = "SELECT * FROM `subjects`";
